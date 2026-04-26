@@ -22,9 +22,8 @@ jobs:
           java-version: "17"
 
       - name: Build Backend
-        run: |
-          cd BloodBankManagement
-          mvn clean install
+        working-directory: BloodBankManagement
+        run: mvn clean install -DskipTests
 
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -32,9 +31,7 @@ jobs:
           node-version: "18"
 
       - name: Build Frontend
-        run: |
-          cd BloodBankManagement
-          npm install
+        run: npm install
           npm run build
 
       - name: Run Tests
