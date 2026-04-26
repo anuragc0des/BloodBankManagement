@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Backend
         run: |
-          cd backend
+          cd BloodBankManagement
           mvn clean install
 
       - name: Set up Node
@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Frontend
         run: |
-          cd frontend
+          cd BloodBankManagement
           npm install
           npm run build
 
