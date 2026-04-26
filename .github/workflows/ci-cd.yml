@@ -40,11 +40,10 @@ jobs:
       # 🔐 Run ONLY for develop & main
       - name: Security Scan (Trivy)
         if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
-        run: |
-          sudo apt-get install -y wget
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.deb
-          sudo dpkg -i trivy_0.50.0_Linux-64bit.deb
-          trivy fs .
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          scan-ref: "."
 
       # 🚀 Deploy ONLY on main
       - name: Deploy
