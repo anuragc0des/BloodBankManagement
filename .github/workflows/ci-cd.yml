@@ -1,0 +1,54 @@
+name: HemoLink CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+
+      - name: Build Backend
+        run: |
+          cd backend
+          mvn clean install
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Build Frontend
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
+      - name: Run Tests
+        run: echo "Run tests here"
+
+      # 🔐 Run ONLY for develop & main
+      - name: Security Scan (Trivy)
+        if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+        run: |
+          sudo apt-get install -y wget
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.50.0_Linux-64bit.deb
+          sudo dpkg -i trivy_0.50.0_Linux-64bit.deb
+          trivy fs .
+
+      # 🚀 Deploy ONLY on main
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploying to production..."
