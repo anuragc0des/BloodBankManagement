@@ -6,18 +6,19 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:dev": "ng build --configuration=development"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.0.3",
-    "@angular/common": "~12.0.3",
-    "@angular/compiler": "~12.0.3",
-    "@angular/core": "~12.0.3",
-    "@angular/forms": "~12.0.3",
-    "@angular/platform-browser": "~12.0.3",
-    "@angular/platform-browser-dynamic": "~12.0.3",
-    "@angular/router": "~12.0.3",
+    "@angular/animations": "^21.2.10",
+    "@angular/common": "^21.2.10",
+    "@angular/compiler": "^21.2.10",
+    "@angular/core": "^21.2.10",
+    "@angular/forms": "^21.2.10",
+    "@angular/platform-browser": "^21.2.10",
+    "@angular/platform-browser-dynamic": "^21.2.10",
+    "@angular/router": "^21.2.10",
     "angular-disable-browser-back-button": "^1.0.2",
     "bootstrap": "^5.0.1",
     "font-awesome": "^4.7.0",
@@ -27,9 +28,9 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.0.3",
-    "@angular/cli": "~12.0.3",
-    "@angular/compiler-cli": "~12.0.3",
+    "@angular-devkit/build-angular": "^21.2.8",
+    "@angular/cli": "^21.2.8",
+    "@angular/compiler-cli": "^21.2.10",
     "@types/jasmine": "~3.6.0",
     "@types/jquery": "^3.5.5",
     "@types/node": "^12.11.1",
@@ -39,6 +40,6 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "typescript": "~4.2.3"
+    "typescript": "~6.0.0"
   }
 }

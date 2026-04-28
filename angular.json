@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "BloodBankManagement": {
+    "blood-bank-management": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,15 +17,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/BloodBankManagement",
+            "outputPath": "dist/blood-bank-management",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.css",
@@ -34,10 +31,12 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
+            ],
+            "aot": true
           },
           "configurations": {
             "production": {
+              "aot": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -71,12 +70,16 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "blood-bank-management:build",
+            "port": 3000
+          },
           "configurations": {
             "production": {
-              "browserTarget": "BloodBankManagement:build:production"
+              "buildTarget": "blood-bank-management:build:production"
             },
             "development": {
-              "browserTarget": "BloodBankManagement:build:development"
+              "buildTarget": "blood-bank-management:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "BloodBankManagement:build"
+            "buildTarget": "blood-bank-management:build"
           }
         },
         "test": {
@@ -94,18 +97,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
       }
     }
   },
-  "defaultProject": "BloodBankManagement"
+  "cli": {
+    "analytics": false
+  }
 }
