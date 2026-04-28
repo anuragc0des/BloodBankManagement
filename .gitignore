@@ -1,45 +1,42 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# ========================
+# Node / Angular
+# ========================
+node_modules/
+dist/
+.angular/
+.angular/cache/
 
-# compiled output
-/dist
-/tmp
-/out-tsc
-# Only exists if Bazel was run
-/bazel-out
+# ========================
+# Backend (Spring Boot)
+# ========================
+target/
+*.class
 
-# dependencies
-/node_modules
+# ========================
+# Logs
+# ========================
+*.log
+npm-debug.log*
+yarn-error.log*
 
-# profiling files
-chrome-profiler-events*.json
+# ========================
+# Environment files
+# ========================
+.env
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# ========================
+# IDE / Editor
+# ========================
+.vscode/
+.idea/
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+# ========================
+# OS files
+# ========================
 .DS_Store
 Thumbs.db
+
+# ========================
+# Misc
+# ========================
+coverage/
